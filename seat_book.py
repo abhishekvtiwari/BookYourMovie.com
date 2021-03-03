@@ -3,6 +3,7 @@ class Avaliable_seats():
         self.x = int(input('Enter the number of rows:\n'))
         self.y = int(input('Enter the number of seats in each rows:\n'))
         self.ar_seats =[]
+    
     def seats(self):
         alpha = 'A'
         for i in range(0,self.x+1):
@@ -26,10 +27,11 @@ class Avaliable_seats():
 
 class Booking(Avaliable_seats):
     def __init__(self):
-        self.booking_info = [["Seat No",'Name','Gender','Age','Ticket price','Phone No.']]
+        self.booking_info = [["Seat No",'Name','Gender','Age','Ticket price','Phone No.',"F&B"]]
         super().__init__()
         self.seats_list = []
         self.net_income = []
+        self.fnb = []
         self.arranged_seats = self.seats()
         self.capacity = self.x*self.y
         
@@ -70,22 +72,37 @@ class Booking(Avaliable_seats):
                 Age = input("Enter your Age:\n")
                 Ticket_price = price_fixer()
                 Phone_No = input("Enter you Phone No:\n")
+                while True:
+                    ans = input("Would you like to add Popcorn and Coke Combo for extra $5? y/n \n")
+                    if ans == "y" or ans =='Y':
+                        Popcorn = 5
+                        break
+                    elif ans == 'n' or ans =="N":
+                        Popcorn = 0
+                        break
+                    else:
+                        print("Please select valid option")
+                        
                 user_details.append(self.seat_num)
                 user_details.append(Name)
                 user_details.append(Gender)
                 user_details.append(Age)
                 user_details.append('$ '+str(Ticket_price))
                 user_details.append(Phone_No)
+                user_details.append(str(Popcorn))
                 self.net_income.append(Ticket_price)
                 self.booking_info.append(user_details)
                 self.seats_list.append(self.seat_num)
+                self.fnb.append(Popcorn)
                 self.arranged_seats[ord(self.seat_num[0])-(ord("A")-1)][int(self.seat_num[1:])] = "\033[1;31m"+"B"+'\033[m'
+                
                 print("\nYour ticket has been Booked successfully!!\n\nYour Details:\n")
                 print("Seat No: ",self.seat_num)
                 print("Name:",Name)
                 print("Gender:",Gender)
                 print("Age:",Age)
                 print("Phone_No.:",Phone_No)
+                print("F&B:", ans)
                 return self.booking_info
                 break
     
@@ -104,4 +121,3 @@ class Booking(Avaliable_seats):
             back = back_line*self.y*8
             income = front+back
         return income
-    
