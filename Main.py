@@ -66,9 +66,10 @@ while True:
     elif n =="4":
         print("\nStatistics:\n")
         print("Number of Ticket Purchased: ", len(Movie.seats_list))
-        print("Net Occupancy Rate(%):","{:.2f}".format(Movie.stats()),"%")
+        print("Percentage of Tickets Booked:","{:.2f}".format(Movie.stats()),"%")
         print("Current Income: $",sum(Movie.net_income))
-        print("Total Income(Max Income from sell of Tickets): $", Movie.total_income())
+        print("Total Income (Max Income from sell of Tickets): $", Movie.total_income())
+        print("Food & Beverages Income: $", sum(Movie.fnb))
         
     elif n == "0":
         break
