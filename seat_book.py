@@ -89,7 +89,7 @@ class Booking(Avaliable_seats):
                 user_details.append(Age)
                 user_details.append('$ '+str(Ticket_price))
                 user_details.append(Phone_No)
-                user_details.append(str(Popcorn))
+                user_details.append(ans)
                 self.net_income.append(Ticket_price)
                 self.booking_info.append(user_details)
                 self.seats_list.append(self.seat_num)
