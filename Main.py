@@ -3,7 +3,7 @@ import seat_book
 Movie = seat_book.Booking()
 
 while True:
-    print("\n\nWelcome to BookYourMovie.com\nBookMyMovies brings booking tickets for movies to your fingertips\n")
+    print("\n\nWelcome to BookYourMovie.com\nBookYourMovies brings booking tickets for movies to your fingertips\n")
     print("\nMain-Menu:")
     print("1. Show Seating Arrangement")
     print("2. Book a seat")
